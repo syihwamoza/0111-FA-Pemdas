@@ -1,0 +1,157 @@
+/** @mainpage Sistem Penilaian Mata Kuliah
+ * 
+ * @section intro_sec 
+ * Haloo Selamat Datang di dokumentasi penilaian Mata Kuliah
+ * Sistem ini dirancang untuk mengelola Penilaian Mata Kuliah Pemrograman dan Jarigan
+ * 
+ * @section 
+ * structure_sec Struktur Kode
+ * Kode ini terdiri dari tiga kelas utama:
+ * \b MataKuliah : menangani semua informasi tentang penilaian semua matkul.
+ * \b Pemrograman : Menangani informasi tentang penilaian matkul Pemrograman
+ * \b Jaringan : Menangani informasi tentang penilaian matkul jaringan
+ * 
+ * @section setup_sec Setup dan Konfigurasi
+ * Untuk menjalankan sistem ini, pastikan Anda memiliki compliter yang mendukung standar C++11 atau lebih tinggi. Kompilasi dan jalankan file ini menggunakan compiler pilihan Anda.
+ * 
+ * @section note_sec Catatan 
+ * Dokumentasi ini dihasilkan menggunakan Doxygen.
+ * 
+ * @section author_sec Tentang Pengembang 
+ * Sistem ini dijalankan syihwamoza.id
+*/
+
+/**
+ * @file UASSpemdas_111.cpp
+ * @brief Sistem penilaian MataKuliah
+*/
+
+#include<iostream>
+using namespace std;
+
+class MataKuliah{
+private:
+    float presensi; // < variabel untuk menghitung nilai presensi
+    float activity; // < variabel untuk menghitung nilai activity
+    float exercise; // < variabel untuk menghitung nilai exercise
+    float tugasAkhir; // < variabel untuk menghitung nilai tugasAkhir
+
+public:
+MataKuliah()
+{
+    presensi  (0.0);
+}
+/**
+  * @brief Konstruktor untuk class MataKuliah
+*/
+
+virtual void namaMataKuliah() {return;}
+virtual void inputNilai() {return;}
+virtual float hitungNilaiAkhir() {return;}
+virtual void cekKelulusan() {return;}
+
+void setPresensi (float nilai)
+{
+    this ->presensi= nilai;
+}
+
+float getPresensi()
+{
+    return presensi;
+}
+
+};
+
+/**
+ * @class Pemrograman
+ * @brief Kelas untuk menangani informasi tentang penilaian matkul pemrograman
+ */
+
+class Pemrograman : public MataKuliah{
+public:
+    string NamaMataKuliah()cont override{
+    return "Pemrograman";
+  }
+
+ /**
+  * @brief Konstruktor untuk class pemrograman
+*/
+
+  void inputNilai() override{
+    cout << "Masukkan nilai presensi: ";
+    cin >> presensi;
+
+    cout << "Masukkan nilai activity:";
+    cin >> activity;
+
+    cout << "Masukkan nilai exercise:";
+    cin >> exercise;
+
+    cout << "Masukkan nilai Tugas akhir:";
+    cin >> tugasAkhir;
+    }
+
+float hitungNilaiAkhir() override{
+   return (0.3 * presensi) + (0.3 * activity) + (0.3 exercise) + (0.1 * tugasAkhir);
+}
+void cekKelulusan() override{
+    float nilaiAkhir = hitungNilai;
+    cout << "Nilai akhir:" << nilaiAkhir << endl;
+}
+
+    if(nilaiAkhir >=75){
+        cout << "Selamat anda dinyatakan lulus" << endl;
+    }
+    else{
+        cout << "Anda dinyatakan Tidak lulus" << endl;
+    }
+
+};
+
+/**
+ * @class Jaringan
+ * @brief Kelas untuk menangani informasi tentang penilaian matkul Jaringan
+ */
+
+class Jaringan : public MataKuliah{
+public:
+string namaMatakuliah;
+return "Jaringan";
+}
+
+/**
+  * @brief Konstruktor untuk class pemrograman
+*/
+
+ void inputNilai() override{
+    cout << "Masukkan nilai activity:";
+    cin >> activity;
+
+    cout << "Masukkan nilai exercise:";
+    cin >> exercise;
+    }
+
+ float hitungNilaiAkhir() override{
+        return (0.5 * activity) + (0.5 * exercise);
+    }
+void cekKelulusan() override{
+    float nilaiAkhir = hitungNilaiAkhir();
+
+    cout<< "Nilai Akhir:" << nilaiAkhir << endl; 
+
+    if(nilaiAkhir >=75){
+        cout << "Selamat anda dinyatakan lulus" << endl;
+    }
+    else{
+        cout << "Anda dinyatakan Tidak lulus" << endl;
+    }
+}
+
+int main()
+{
+   char pilih;
+   MataKuliah *mataKuliah;
+   Pemrograman pemrograman;
+   Jaringan jaringan;
+
+}
